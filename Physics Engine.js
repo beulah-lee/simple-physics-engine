@@ -251,7 +251,7 @@ function setLightUniforms(a, d, s, loc) {
   gl.uniform3fv(shaderProgram.locations.lightPosition, loc);
 }
 
-/////////////// USER KEY CODE STUFF //////////////////////////
+/////////////// USER KEY CODE //////////////////////////
 function keyDown(event){
   console.log("Key down ", event.key, " code ", event.code);
   if (event.key == "ArrowLeft" ||   event.key == "ArrowRight") {
