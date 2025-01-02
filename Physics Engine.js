@@ -1,6 +1,6 @@
 var gl;     // The WebGL context
 var canvas; // The HTML5 Canvas
-var shaderProgram;
+var shaderProgram; //The GLSL shader program 
 
 var sphere1;
 
@@ -45,7 +45,7 @@ function startup() {
   sphere1 = new Sphere(5);
   sphere1.setupBuffers(shaderProgram);
   
-  // Create the projection matrix with perspective projection.
+  // Create the projection matrix with perspective projection
   const near = 0.1;
   const far = 200.0;
   glMatrix.mat4.perspective(projectionMatrix, degToRad(45), 
@@ -101,11 +101,11 @@ function loadShaderFromDOM(id) {
 }
 
 function setupShaders() {
-  // Compile the shaders' source code.
+  // Compile the shaders' source code
   vertexShader = loadShaderFromDOM("shader-vs");
   fragmentShader = loadShaderFromDOM("shader-fs");
   
-  // Link the shaders together into a program.
+  // Link the shaders together into a program
   shaderProgram = gl.createProgram();
   gl.attachShader(shaderProgram, vertexShader);
   gl.attachShader(shaderProgram, fragmentShader);
@@ -155,11 +155,11 @@ function animate(currentTime) {
   var deltaTime = currentTime - previousTime;
   previousTime = currentTime;
    
-  if (keys["ArrowRight"]) {    //left key makes the plane roll to its left
+  if (keys["ArrowRight"]) { 
     nSpheres = nSpheres+1;
     particles.push(new Particle());
   }
-  if (keys["ArrowLeft"]) {    //right key makes the plane roll to its right
+  if (keys["ArrowLeft"]) { 
     nSpheres = 0;
     for(var i=0; i<particles.length; i++){
       particles.pop();        //clear particles
@@ -172,13 +172,13 @@ function animate(currentTime) {
   var modelMatrix = glMatrix.mat4.create();
   var viewMatrix = glMatrix.mat4.create();
 
-  // Create the view matrix using lookat.
+  // Create the view matrix using lookat
   const lookAtPt = glMatrix.vec3.fromValues(0.0, 0.0, 0.0);
   const eyePt = glMatrix.vec3.fromValues(0.0, 0.0, 15.0);
   const up = glMatrix.vec3.fromValues(0.0, 1.0, 0.0); 
   glMatrix.mat4.lookAt(viewMatrix, eyePt, lookAtPt, up);
 
-  // Concatenate the model and view matrices.
+  // Concatenate the model and view matrices
   glMatrix.mat4.multiply(modelViewMatrix, viewMatrix, modelMatrix);
 
   setMatrixUniforms();
@@ -193,7 +193,7 @@ function animate(currentTime) {
   sphere1.bindVAO();
 
   for(var i=0; i<particles.length; i++){
-    // Update the positions and velocities of each sphere.
+    // Update the positions and velocities of each sphere
     particles[i].updatePosition(particles[i].velocity, particles[i].position, deltaTime);
     particles[i].updateVelocity(particles[i].velocity, deltaTime);
 
@@ -221,7 +221,7 @@ function animate(currentTime) {
   requestAnimationFrame(animate);
 }
 
-// Sends the three matrix uniforms to the shader program.
+// Sends the three matrix uniforms to the shader program
 function setMatrixUniforms() {
   gl.uniformMatrix4fv(shaderProgram.locations.modelViewMatrix, false,
                       modelViewMatrix);
