@@ -20,4 +20,4 @@ This project is a simple WebGL rendering engine for simulating and rendering sph
 ![image](https://github.com/user-attachments/assets/711e0592-32af-448b-bdc6-d9e5ba34dbad)
 
 Acknowledgments
-The gl-matrix library by Brandon Jones and Colin MacKenzie IV for matrix and vector operations.
+The gl-matrix library by Brandon Jones and Colin MacKenzie IV for matrix and vector operations and Ian Rudnick for reference code
