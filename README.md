@@ -4,10 +4,10 @@ This project is a simple WebGL rendering engine for simulating and rendering sph
 
 ## Features
 
-- **WebGL Rendering Engine**: Utilizes WebGL 2.0 and GLSL 3.00 ES for rendering 3D spheres with basic physics interactions.
-- **Sphere Mesh Generation**: Generates smooth sphere meshes using recursive triangle subdivision.
-- **Particle System**: Implements a particle system with collision detection and response, including Euler integration for position and velocity updates.
-- **Dynamic Lighting**: Uses Blinn-Phong shading model for realistic lighting effects, including ambient, diffuse, and specular components.
+- **WebGL Rendering Engine**: Utilized WebGL 2.0 and GLSL 3.00 ES for rendering 3D spheres with basic physics interactions.
+- **Sphere Mesh Generation**: Generated smooth sphere meshes using recursive triangle subdivision.
+- **Particle System**: Implemented a particle system with collision detection and response, including Euler integration for position and velocity updates.
+- **Dynamic Lighting**: Used Blinn-Phong shading model for realistic lighting effects, including ambient, diffuse, and specular components.
 - **User Interaction**: Allows users to spawn and remove spheres using keyboard controls.
 
 ## Tools and Technologies
